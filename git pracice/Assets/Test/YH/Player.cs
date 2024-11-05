@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
 
     public TMP_Text coinText;
 
+    // AudioSource 컴포넌트를 참조하는 변수
+    private AudioSource audioSource;
+
     // 이동할 목표 위치
     private Vector2 targetPosition;
 
@@ -20,6 +23,8 @@ public class Player : MonoBehaviour
     {
         // 오브젝트의 현재 위치를 초기 목표 위치로 설정
         targetPosition = transform.position;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -44,5 +49,7 @@ public class Player : MonoBehaviour
         Debug.Log("Coin:" + coin);
 
         coinText.text = "Coin : " + coin;
+
+        audioSource.Play();
     }
 }
